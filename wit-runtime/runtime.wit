@@ -5,3 +5,8 @@ interface host-functions {
     return-err: func();
     panic: func();
 }
+
+world example {
+    import host-functions;
+    export host-functions;
+}

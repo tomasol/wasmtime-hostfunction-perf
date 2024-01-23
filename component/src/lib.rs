@@ -1,7 +1,7 @@
 cargo_component_bindings::generate!();
 
-use crate::bindings::component::component::host_functions;
 use crate::bindings::exports::runtime::runtime::host_functions::Guest;
+use crate::bindings::runtime::runtime::host_functions;
 struct Component;
 
 impl Guest for Component {

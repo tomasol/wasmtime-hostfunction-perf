@@ -28,6 +28,7 @@
               pkg-config
               nixpkgs-fmt
               rustToolchain
+              wasm-tools
             ];
           };
         }

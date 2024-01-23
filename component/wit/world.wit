@@ -1,12 +1,8 @@
 package component:component;
 
-interface host-functions {
-    return-ok: func();
-    return-err: func();
-    panic: func();
-}
-
 world example {
-    import host-functions;
+    import runtime:runtime/host-functions;
     export runtime:runtime/host-functions;
 }
+
+
