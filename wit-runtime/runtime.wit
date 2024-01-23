@@ -1,0 +1,7 @@
+package runtime:runtime;
+
+interface host-functions {
+    return-ok: func();
+    return-err: func();
+    panic: func();
+}
