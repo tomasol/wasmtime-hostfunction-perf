@@ -30,6 +30,7 @@ impl runtime::runtime::host_functions::Host for HostImpl {
 
 #[tokio::main]
 async fn main() -> wasmtime::Result<()> {
+    let stopwatch = Instant::now();
     let mut config = Config::new();
     config.wasm_component_model(true);
     config.async_support(true);
@@ -42,10 +43,10 @@ async fn main() -> wasmtime::Result<()> {
 
     println!("Loading `{wasm_file}`");
     let component = Arc::new(Component::from_file(&engine, wasm_file)?);
-
     let mut linker = Linker::new(&engine);
     Example::add_to_linker(&mut linker, |state: &mut HostImpl| state)?;
     let linker = Arc::new(linker);
+    println!("Loading finished in {} ms", stopwatch.elapsed().as_millis());
 
     let host_panic_task = {
         let engine = engine.clone();
