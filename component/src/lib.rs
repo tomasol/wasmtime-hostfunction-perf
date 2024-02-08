@@ -11,7 +11,11 @@ impl Guest for Component {
     fn return_err() {
         host_functions::return_err()
     }
-    fn panic() {
-        host_functions::panic()
+    fn panic(host: bool) {
+        if host {
+            host_functions::panic(host)
+        } else {
+            panic!("guest")
+        }
     }
 }
